@@ -1,19 +1,8 @@
-import { type RouteConfig } from '@react-router/dev/routes';
+import { type RouteConfig, layout, route } from '@react-router/dev/routes';
 
 export default [
-  {
-    path: 'admin',
-    file: './routes/admin/adminLayout.tsx',
-
-    children: [
-      {
-        path: 'dashboard',
-        file: './routes/admin/dashboard.tsx',
-      },
-      {
-        path: 'allUsers',
-        file: './routes/admin/allUsers.tsx',
-      },
-    ],
-  },
+  layout('routes/admin/adminLayout.tsx', [
+    route('Dashboard', 'routes/admin/dashboard.tsx'),
+    route('all-users', 'routes/admin/all-users.tsx'),
+  ]),
 ] satisfies RouteConfig;
